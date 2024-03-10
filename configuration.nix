@@ -93,7 +93,6 @@
     zsh
     networkmanagerapplet
     neovim
-    catppuccin-unstable
     catppuccin-gtk
   ];
   programs.thunar.enable = true;
