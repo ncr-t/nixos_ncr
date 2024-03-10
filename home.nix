@@ -110,12 +110,22 @@
     };
 
     theme = {
-      name = "palenight";
-      package = pkgs.palenight-theme;
+      name = "catppuccin";
+      package = pkgs.catppuccin-gtk;
     };
   };
-
-  home.sessionVariables.GTK_THEME = "palenight";
+xdg.configFile = {
+  "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+  "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+  "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+};
+dconf.settings = {
+    # Prefer Dark Theme
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+};
+  home.sessionVariables.GTK_THEME = "catppuccin";
   # ...
 
   programs.git = {
