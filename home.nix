@@ -133,7 +133,12 @@
   };
   home.sessionVariables.GTK_THEME = "Catppuccin-Macchiato-Compact-Pink-Dark";
   # ...
-
+programs.direnv = {
+      enable = true;
+      nix-direnv = {
+        enable = true;
+      };
+    };
   programs.git = {
     enable = true;
     userName = "NCR";

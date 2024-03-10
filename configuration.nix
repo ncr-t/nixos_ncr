@@ -173,6 +173,11 @@
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.windowManager.awesome.enable = true;
+  services.xserver.videoDrivers = [ "intel" ];
+  services.xserver.deviceSection = ''
+    Option "DRI" "2"
+    Option "TearFree" "true"
+  '';
   services.devmon.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
