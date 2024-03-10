@@ -129,7 +129,7 @@ dconf.settings = {
       color-scheme = "prefer-dark";
     };
 };
-  home.sessionVariables.GTK_THEME = "catppuccin-gtk";
+  home.sessionVariables.GTK_THEME = "Catppuccin-Macchiato-Compact-Pink-Dark";
   # ...
 
   programs.git = {
