@@ -72,6 +72,8 @@
     ponysay
     gnumake
     libgcc
+    alacritty-theme
+    chromium
 
     # nix related
     #
@@ -99,7 +101,7 @@
     pciutils # lspci
     usbutils # lsusb
   ];
-# users/ncr/home.nix
+  # users/ncr/home.nix
   # ...
   gtk = {
     enable = true;
@@ -108,27 +110,27 @@
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
-   theme = {
+    theme = {
       name = "Catppuccin-Macchiato-Compact-Pink-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "pink" ];
+        accents = ["pink"];
         size = "compact";
-        tweaks = [ "rimless" "black" ];
+        tweaks = ["rimless" "black"];
         variant = "macchiato";
       };
+    };
   };
+  xdg.configFile = {
+    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
-xdg.configFile = {
-  "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-  "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-  "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
-};
-dconf.settings = {
+  dconf.settings = {
     # Prefer Dark Theme
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
-};
+  };
   home.sessionVariables.GTK_THEME = "Catppuccin-Macchiato-Compact-Pink-Dark";
   # ...
 
@@ -137,8 +139,15 @@ dconf.settings = {
     userName = "NCR";
     userEmail = "lainmaxxed@proton.me";
   };
-  programs.alacritty.enable = true;
   # starship - an customizable prompt for any shell
+  programs.alacritty = {
+enable = true;
+settings = { 
+import = [
+        "${pkgs.alacritty-theme}/catppuccin-mocha.toml"  ]; 
+};
+};
+
   programs.starship = {
     enable = true;
     # custom settings

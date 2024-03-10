@@ -139,7 +139,17 @@
       options = "--delete-older-than 7d";
     };
   };
-
+  hardware = {
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Experimental = true;
+          KernelExperimental = true;
+        };
+      };
+    };
+  };
   nixpkgs = {
     config = {
       allowAliases = false;
