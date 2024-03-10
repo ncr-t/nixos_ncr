@@ -159,6 +159,7 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+  programs.dconf.enable = true;
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.windowManager.awesome.enable = true;
