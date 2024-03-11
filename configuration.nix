@@ -94,6 +94,7 @@
     networkmanagerapplet
     neovim
     catppuccin-gtk
+    xorg.xbacklight
   ];
   programs.thunar.enable = true;
   nix = {

@@ -24,7 +24,7 @@
 
   # set cursor size and dpi for 4k monitor
   xresources.properties = {
-    "Xcursor.size" = 10;
+    "Xcursor.size" = 1230;
     "Xft.dpi" = 100;
   };
   # Packages that should be installed to the user profile.
@@ -74,8 +74,7 @@
     libgcc
     alacritty-theme
     chromium
-    sl
-
+    blueberry
     # nix related
     #
     # it provides the command `nom` works just like `nix`
