@@ -74,6 +74,7 @@
     libgcc
     alacritty-theme
     chromium
+    sl
 
     # nix related
     #
