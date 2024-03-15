@@ -3,6 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -63,6 +64,7 @@
       nil
       lxappearance
       adw-gtk3
+      dunst
     ];
   };
   fonts = {
@@ -90,11 +92,15 @@
     pulseaudio
     alsa-utils
     pipewire
+    feh
+    imagemagick
     zsh
     networkmanagerapplet
     neovim
     catppuccin-gtk
     xorg.xbacklight
+    clang
+    lynx
   ];
   programs.thunar.enable = true;
   nix = {
@@ -174,6 +180,8 @@
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.windowManager.awesome.enable = true;
+  services.dockerRegistry.enable = true;
+  virtualisation.docker.enable = true;
   services.xserver.videoDrivers = [ "intel" ];
   services.xserver.deviceSection = ''
     Option "DRI" "2"
@@ -182,7 +190,6 @@
   services.devmon.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
-
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {

@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, pkgs, ecsls, system, ...}: {
   # TODO please change the username & home directory to your own
   home.username = "ncr";
   home.homeDirectory = "/home/ncr";
@@ -29,17 +25,13 @@
   };
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    # here is some command line tools I use frequently
-    # feel free to add your own or remove some of them
-    neofetch
-    nnn # terminal file manager
-    hyfetch
-
+    # PACKAGES !!!!!
     # archives
     zip
     xz
     unzip
     p7zip
+    eza
 
     # utils
     ripgrep # recursively searches directories for a regex pattern
@@ -47,6 +39,7 @@
     yq-go # yaml processer https://github.com/mikefarah/yq
     eza # A modern replacement for ‘ls’
     fzf # A command-line fuzzy finder
+    helix
 
     # networking tools
     mtr # A network diagnostic tool
@@ -59,6 +52,11 @@
     ipcalc # it is a calculator for the IPv4/v6 addresses
 
     # misc
+    neofetch
+    gimp
+    krita
+    hyfetch
+    betterlockscreen
     cowsay
     file
     which
@@ -75,6 +73,14 @@
     alacritty-theme
     chromium
     blueberry
+    vector
+    armadillo
+    prismlauncher
+    jdk8
+    poppler_utils
+    flameshot
+
+
     # nix related
     #
     # it provides the command `nom` works just like `nix`
@@ -93,6 +99,7 @@
     strace # system call monitoring
     ltrace # library call monitoring
     lsof # list open files
+    sl
 
     # system tools
     sysstat
@@ -100,6 +107,7 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+    tmux
   ];
   # users/ncr/home.nix
   # ...
@@ -155,10 +163,10 @@
       lua-language-server
       nodePackages.pyright
       clang-tools
-      llvmPackages_latest.clang
       nodejs
       xclip
       ecsls-pkg
+      telescope
     ];
   };
   programs.direnv = {
@@ -175,9 +183,9 @@
   # starship - an customizable prompt for any shell
   programs.alacritty = {
 enable = true;
-settings = { 
+settings = {
 import = [
-        "${pkgs.alacritty-theme}/catppuccin-mocha.toml"  ]; 
+        "${pkgs.alacritty-theme}/catppuccin-mocha.toml"  ];
 };
 };
 
