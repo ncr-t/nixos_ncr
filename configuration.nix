@@ -25,7 +25,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
   # Set your time zone.
   time.timeZone = "Europe/Paris";
 
@@ -162,6 +161,9 @@
       allowAliases = false;
       allowUnfree = true;
       contentAddressedByDefault = false;
+      permittedInsecurePackages = [
+      "electron-19.1.9"
+    ];
     };
   };
   # Some programs need SUID wrappers, can be configured further or are

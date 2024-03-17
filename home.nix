@@ -32,6 +32,7 @@
     unzip
     p7zip
     eza
+    pavucontrol
 
     # utils
     ripgrep # recursively searches directories for a regex pattern
@@ -79,6 +80,8 @@
     jdk8
     poppler_utils
     flameshot
+    libreoffice
+    etcher
 
 
     # nix related
