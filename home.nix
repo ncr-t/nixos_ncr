@@ -33,6 +33,8 @@
     p7zip
     eza
     pavucontrol
+    qbittorrent
+    python3
 
     # utils
     ripgrep # recursively searches directories for a regex pattern
@@ -81,7 +83,7 @@
     poppler_utils
     flameshot
     libreoffice
-    etcher
+    protonvpn-gui
 
 
     # nix related

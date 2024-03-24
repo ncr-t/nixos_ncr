@@ -178,6 +178,11 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+  programs.steam = {
+  enable = true;
+  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    };
   programs.dconf.enable = true;
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
